@@ -1,0 +1,38 @@
+name: Pull Request Check
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '9.0.x'  # Or your target .NET version
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build solution
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Run tests
+        run: dotnet test --no-build --verbosity normal
+
+  notify-discord:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: needs.build-and-test.result == 'success'  # Only runs on success
+    steps:
+      - name: Notify Discord
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d '{"username":"Pelin","content":" Build and tests passed successfully! Yippi!"}' \
+               ${{ secrets.DIS_HOOK }}
