@@ -9,7 +9,7 @@ namespace Pelle2004
     internal class Program
     {
         static void Main(string[] args)
-            writeline("I'm a cheff!");
+            writeline("I'm the amazing cheff!");
         {
         }
     }
