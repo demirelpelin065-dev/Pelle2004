@@ -8,9 +8,9 @@ namespace Pelle2004
 {
     internal class Program
     {
-        static void Main(string[] args)
-            writeline("I'm the amazing cheff!");
+        private static void Main(string[] args)
         {
+            // Entry point logic goes here
         }
     }
 }
