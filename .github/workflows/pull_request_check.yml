@@ -2,7 +2,7 @@ name: Pull Request Check
 
 on:
   pull_request:
-    branches: [ main, develop ]
+    branches: [ master, develop ]
 
 jobs:
   build-and-test:
@@ -36,3 +36,4 @@ jobs:
                -X POST \
                -d '{"username":"Pelin","content":" Build and tests passed successfully! Yippi!"}' \
                ${{ secrets.DIS_HOOK }}
+
