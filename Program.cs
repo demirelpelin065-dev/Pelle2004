@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pelle2004
 {
@@ -10,7 +6,7 @@ namespace Pelle2004
     {
         private static void Main(string[] args)
         {
-            // Entry point logic goes here
+            Console.WriteLine("Hello!");
         }
     }
 }
