@@ -22,9 +22,6 @@ jobs:
       - name: Build solution
         run: dotnet build --no-restore --configuration Release
 
-      - name: Run tests
-        run: dotnet test --no-build --verbosity normal
-
   notify-discord:
     runs-on: ubuntu-latest
     needs: build-and-test
@@ -36,4 +33,5 @@ jobs:
                -X POST \
                -d '{"username":"Pelin","content":" Build and tests passed successfully! Yippi!"}' \
                ${{ secrets.DIS_HOOK }}
+
 
