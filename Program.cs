@@ -6,7 +6,7 @@ namespace Pelle2004
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Hello!");
         }
     }
 }
